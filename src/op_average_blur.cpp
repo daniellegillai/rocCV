@@ -107,9 +107,9 @@ void AverageBlur::operator()(hipStream_t stream, const Tensor& input, Tensor& ou
 
     // Compute the kernel
     float val = 1.0 / (kernelWidth * kernelHeight);
-    for (int x = 0; x < kernelWidth; ++x) {
-        for (int y = 0; y < kernelHeight; ++y) {
-            m_hostKernelMem[x * kernelWidth + y] = val;
+    for (int y = 0; y < kernelHeight; ++y) {
+        for (int x = 0; x < kernelWidth; ++x) {
+            m_hostKernelMem[y * kernelWidth + x] = val;
         }
     }
 
